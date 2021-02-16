@@ -6,3 +6,12 @@ export const TimerValidator = Joi.object(
         min: Joi.number().min(0).max(59).required()
     }
 );
+
+const DayValidator = Joi.object(
+    {
+        start: TimerValidator.required(),
+        end: TimerValidator.required()
+    }
+);
+
+export default DayValidator;

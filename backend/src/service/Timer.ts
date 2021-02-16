@@ -4,12 +4,12 @@ class TimerService
     /**
      * @param start
      * @param end 
-     * @return Array[Timer]
-     * Array with total day hours and total night hours.
+     * @return start: Timer, end: Timer
+     * Object with total day hours and total night hours.
      * */
     
     // This method calculate the worked hours at Day and at Night.
-    GetWorkedTime(start: Timer, end: Timer): Array<Timer>
+    GetWorkedTime(start: Timer, end: Timer): Object
     { 
         // Transform hours in minutes
         const startTotalMin = (start.hour * 60) + start.min;
@@ -30,6 +30,7 @@ class TimerService
         let dayMinutesCounter = 0;
         let nightMinutesCounter = 0;
 
+        // Calculate worked minutes
         for (let min = startTotalMin; min < len; min++)
         {
             if (min >= $5_HOURS && min < $22_HOURS || min >= $29_HOURS)
@@ -53,7 +54,10 @@ class TimerService
             min: nightMinutesCounter % 60
         }
 
-        return [TotalDay, TotalNight];
+        return {
+            day: TotalDay, 
+            night: TotalNight
+        };
     }
 
     /**
