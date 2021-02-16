@@ -1,8 +1,4 @@
-interface Timer {
-    hour: number;
-    min: number;
-}
-
+import Timer from '../types/TimerType';
 class TimerService
 {
     /**
