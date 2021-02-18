@@ -15,6 +15,11 @@ const Timer = (props) => {
         setHour(Hour);
         setMinute(Minute);
         setColor('purple-text lighten-2');
+        
+        if (props.name)
+        {
+            props.time({ hour, min: minute }, props.name);
+        }
     }
 
     const options = {
