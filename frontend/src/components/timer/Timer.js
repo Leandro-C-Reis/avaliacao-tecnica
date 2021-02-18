@@ -1,8 +1,22 @@
-import React from 'react';
-import 'materialize-css';
-import { TimePicker, Card } from 'react-materialize';
+import React, { useState, useEffect } from 'react';
+import 'materialize-css/dist/css/materialize.min.css';
+import { TimePicker, Card, Row, Col } from 'react-materialize';
 
 const Timer = (props) => {
+    const [hour, setHour] = useState(0);
+    const [minute, setMinute] = useState(0);
+    const [color, setColor] = useState('black-text');
+
+    let Hour = hour;
+    let Minute = minute;
+
+    function UpdateTimeHandler()
+    {
+        setHour(Hour);
+        setMinute(Minute);
+        setColor('purple-text lighten-2');
+    }
+
     const options = {
         autoClose: false,
         container: null,
@@ -14,27 +28,42 @@ const Timer = (props) => {
             clear: 'Clear',
             done: 'Ok'
         },
-        onCloseEnd: null,
+        onCloseEnd: UpdateTimeHandler,
         onCloseStart: null,
         onOpenEnd: null,
         onOpenStart: null,
         onSelect: null,
         showClearBtn: false,
         twelveHour: false,
-        vibrate: true
+        vibrate: false
     };
 
     return (
-        <div className="container">
-            <Card className="light-blue lighten-2 white-text hoverable">
-                <h2>
+        <Row>
+            <Card className="yellow lighten-1 black-text hoverable">
+                <h5 
+                    style={{
+                        fontWeight: '500',
+                        letterSpacing: '1px'
+                    }}
+                >
                     {props.title}
-                </h2>
-                <TimePicker className="white-text"
-                    options={options}
-                />
+                </h5>
+                <TimePicker 
+                    className="black-text center-align "
+                    options={options} 
+                    onChange={(h, m) => {
+                        Hour = h;
+                        Minute = m;
+                    }}
+                />  
+                <h4 className={`center-align ${color}`}>
+                    {`${hour < 9 ? '0' + hour : hour}:${
+                        minute < 9 ? '0' + minute : minute
+                    }`}
+                </h4>
             </Card>
-        </div>
+        </Row> 
     );
 };
 

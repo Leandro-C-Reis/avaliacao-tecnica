@@ -1,0 +1,19 @@
+
+* {
+    font-size: large;
+}
+
+span {
+    font-weight: bold;
+}
+
+.time {
+    min-width: 100px;
+    min-height: 30px;
+
+    background: #9575cd;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
