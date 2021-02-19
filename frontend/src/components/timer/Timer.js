@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
-import { TimePicker, Card, Row, Col } from 'react-materialize';
+import { TimePicker, Card, Row } from 'react-materialize';
 
 const Timer = (props) => {
     const [hour, setHour] = useState(0);
@@ -18,7 +18,7 @@ const Timer = (props) => {
         
         if (props.name)
         {
-            props.time({ hour, min: minute }, props.name);
+            props.time({ hour: Hour, min: Minute }, props.name);
         }
     }
 
