@@ -45,24 +45,30 @@ const Timer = (props) => {
 
     return (
         <Row>
-            <Card className="yellow lighten-1 black-text hoverable">
-                <h5 
+            <Card className="hoverable teal lighten-3">
+                <h5
                     style={{
+                        fontFamily: 'Teko',
                         fontWeight: '500',
-                        letterSpacing: '1px'
+                        letterSpacing: '1px',
+                        color: '#212121'
                     }}
                 >
                     {props.title}
                 </h5>
                 <TimePicker 
-                    className="black-text center-align "
+                    className="center-align"
                     options={options} 
                     onChange={(h, m) => {
                         Hour = h;
                         Minute = m;
                     }}
                 />  
-                <h4 className={`center-align ${color}`}>
+                <h4 className={`center-align`}
+                    style={{
+                        color: '#212121'
+                    }}    
+                >
                     {`${hour < 9 ? '0' + hour : hour}:${
                         minute < 9 ? '0' + minute : minute
                     }`}

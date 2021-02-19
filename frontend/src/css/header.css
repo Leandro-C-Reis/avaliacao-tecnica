@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+
+.Header {
+    background: #212121;
+    width: 100%;
+    height: 60px;
+
+    text-align: center;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span {
+    font-family: 'Teko' !important;
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 1px;
+}

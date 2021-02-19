@@ -4,7 +4,7 @@
 }
 
 span {
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .time {
@@ -16,4 +16,8 @@ span {
     text-align: center;
     align-items: center;
     justify-content: center;
+}
+
+.animation {
+    transition: height 2s;
 }

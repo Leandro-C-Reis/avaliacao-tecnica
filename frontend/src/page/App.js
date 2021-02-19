@@ -1,8 +1,9 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, Image } from 'react';
 import "materialize-css";
+import { Row } from 'react-materialize';
 import Timer from '../components/timer/Timer';
 import Worked from '../components/worked/Worked';
-import { Row } from 'react-materialize';
+import Header from '../components/header/Header';
 
 const App = () => {
     const [hide, setHide] = useState(true);
@@ -21,10 +22,16 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        setHide(false);
+        if (startTime && endTime)
+        {
+            console.log('HAn')
+            setHide(false);
+        }
     }, [startTime, endTime]);
 
     return (
+        <>
+        <Header />
         <div className="container row valign-wrapper" id="app">
             <Row className="container">
                 <Timer title="HORÁRIO INICIAL:" time={handleSetTime} name="start"/>
@@ -33,6 +40,7 @@ const App = () => {
             </Row>
             
         </div>
+        </>
     )
 }
 
