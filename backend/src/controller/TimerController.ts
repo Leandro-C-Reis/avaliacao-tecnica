@@ -26,8 +26,9 @@ class TimerController {
         const { start, end } = validate.value;
 
         const worked_hours = timer.GetWorkedTime(start, end);
+        const total_worked_hours = timer.GetTotalWorkedTime(start, end);
 
-        return response.status(200).json(worked_hours);
+        return response.status(200).json({ ...worked_hours, total: total_worked_hours });
     }
 }
 
