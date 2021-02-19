@@ -24,7 +24,6 @@ const App = () => {
     useEffect(() => {
         if (startTime && endTime)
         {
-            console.log('HAn')
             setHide(false);
         }
     }, [startTime, endTime]);
@@ -38,7 +37,6 @@ const App = () => {
                 <Timer title="HORÁRIO FINAL:" time={handleSetTime} name="end"/>
                 <Worked hide={hide}/>
             </Row>
-            
         </div>
         </>
     )

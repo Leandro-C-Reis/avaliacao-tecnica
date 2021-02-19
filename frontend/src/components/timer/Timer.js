@@ -5,7 +5,7 @@ import { TimePicker, Card, Row, Col } from 'react-materialize';
 const Timer = (props) => {
     const [hour, setHour] = useState(0);
     const [minute, setMinute] = useState(0);
-    const [color, setColor] = useState('black-text');
+    const [color, setColor] = useState('#212121');
 
     let Hour = hour;
     let Minute = minute;
@@ -14,7 +14,7 @@ const Timer = (props) => {
     {
         setHour(Hour);
         setMinute(Minute);
-        setColor('purple-text lighten-2');
+        setColor('white');
         
         if (props.name)
         {
@@ -64,9 +64,9 @@ const Timer = (props) => {
                         Minute = m;
                     }}
                 />  
-                <h4 className={`center-align`}
+                <h4 className="center-align"
                     style={{
-                        color: '#212121'
+                        color: color
                     }}    
                 >
                     {`${hour < 9 ? '0' + hour : hour}:${
