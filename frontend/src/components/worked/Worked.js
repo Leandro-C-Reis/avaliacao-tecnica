@@ -8,6 +8,7 @@ const Worked = (props) => {
     const [nightTime, setNightTime] = useState('00:00');
     const [startTime, setStartTime] = useState('00:00');
     const [endTime, setEndTime] = useState('00:00');
+    const [totalTime, setTotalTime] = useState('00:00');
 
     function StringParse(hour, minute)
     {
@@ -24,11 +25,13 @@ const Worked = (props) => {
             const eTime = StringParse(props.data.end.hour, props.data.end.min);
             const dTime = StringParse(props.data.day.hour, props.data.day.min);
             const nTime = StringParse(props.data.night.hour, props.data.night.min);
+            const tTime = StringParse(props.data.total.hour, props.data.total.min);
 
             setStartTime(sTime);
             setEndTime(eTime);
             setDayTime(dTime);
             setNightTime(nTime);
+            setTotalTime(tTime);
         }
     }, [props]);
 
@@ -42,7 +45,7 @@ const Worked = (props) => {
                 Término: <span className="bold">{endTime}</span>
             </Card>
             <Card className="hoverable grey lighten-2">
-                Total trabalhado: <span className="bold">00:00</span>
+                Total trabalhado: <span className="bold">{totalTime}</span>
             </Card>
             <Card className="col s6 m5 l6 1 hoverable grey lighten-2">
                 Total diurno: <span className="bold">{dayTime}</span>
